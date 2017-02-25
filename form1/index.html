@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单（一）单个表单项的检验</title>
+    <style>
+       form{
+        width: 400px;
+        margin: 30px auto;
+       } 
+       form .text{
+        width: 200px;
+        height: 25px;
+       }
+       form .btn{
+        width: 40px;
+        height: 25px;
+        color: #ffffff;
+        background-color: #307ab8;
+       }
+       form .input{
+        border-width: 1px;
+        border-radius: 5px;
+        outline: none;
+       }
+       form #tooltip{
+        font-size: 13px;
+        color: #a6a6a6;
+        margin-left: 50px;
+       }
+    </style>
+</head>
+<body>
+    <form action="" method="get" accept-charset="utf-8">
+    <div>
+    <label>名称：<input class="input text" id="text" type="text" name="" value=""></label>
+    <input class="input btn" id="btn" type="button" name="" value="验证">
+    </div>
+    <span id="tooltip">必填，长度为4~16个字符</span>
+    </form>
+    <script>
+        var text = document.getElementById("text"),
+            btn = document.getElementById("btn"),
+            tooltip = document.getElementById("tooltip");
+
+        //定义提示信息的样式    
+        var tooltipObj = {
+            empty:{
+                message:"名称不能为空",
+                style:"#f2a2a4"
+            },
+            false:{
+                message:"名称格式不正确",
+                style:"#64bf52"
+            },
+            true:{
+                message:"名称格式正确",
+                style:"#307ab8"
+            }
+        }
+
+        //定义正则
+        var regChinese = /([^\x00-\xff])/g, //匹配中文等占2个长度
+            regEnglish = /([\x00-\xff])/g; //匹配英文等占1个长度
+        //显示提示信息
+        function tootltipShow(type){
+            tooltip.innerText = type.message;
+            tooltip.style.color = type.style;
+            text.style.borderColor = type.style;
+        }
+
+        //绑定事件
+        btn.onclick = function(){
+            var textValue = text.value; //获取输入框的值
+            var chineseLength,englishLength;
+
+            textValue.match(regChinese) ? chineseLength = (textValue.match(regChinese)).length : chineseLength = 0;
+            textValue.match(regEnglish) ? englishLength = (textValue.match(regEnglish)).length : englishLength = 0;
+            
+
+            var allLength = (chineseLength*2)+englishLength;  //字数总长度
+            if(textValue !== ""){
+                if(allLength >=4 && allLength <=16){
+                    tootltipShow(tooltipObj.true);
+                }else{
+                    tootltipShow(tooltipObj.false);
+                }
+                }else{
+                    tootltipShow(tooltipObj.empty);
+                }   
+        }
+    </script>
+</body>
+</html>
