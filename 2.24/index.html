@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义checkbox,radio样式</title>
+    <style>
+          .radio1{
+            display: block;
+            width: 100px;
+            height: 26px;
+            line-height: 26px;         
+          }
+          span{
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            background: url(images/99322cf8c3283e42.png);
+            background-position: 77px -1px;
+          }
+         #radio:checked + label span{
+            background-position: 42px -1px;
+          } 
+    </style>
+</head>
+<body>
+    <input id="radio" type="radio" style="display: none;"  name="" value="">
+    <label class="radio1" for="radio">radio1<span></span></label>
+</body>
+</html>
