@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式入门</title>
+    <style>
+        .reg{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="reg phone">
+<label>手机号：<input id="phone-text" type="text" name="" value=""></label>
+<input id="phone-btn" type="button" value="验证">
+</div>
+
+<div class="reg word">
+<label>单词：<input id="word-text" type="text" name="" value=""></label>
+<input id="word-btn" type="button" value="验证">
+</div>
+<script>
+    var phone_btn = document.getElementById("phone-btn"),
+        word_btn = document.getElementById("word-btn");
+        
+        //验证电话号码
+        phone_btn.onclick = function(){
+            var phone_text = document.getElementById("phone-text").value,
+                regPhone = /1[3|5|8]\d{9}$/;
+                if(regPhone.test(phone_text)){
+                    alert("true");
+                }else{
+                    alert("false");
+                }
+            
+        }
+        //验证单词  
+        word_btn.onclick = function(){
+            var word_text = document.getElementById("word-text").value,
+                regWord = /([A-Za-z]+)/g;
+            var _result = word_text.match(regWord); 
+            var flag = false; //是否重复
+            for(var i=0;i<_result.length-1;i++){
+               if(_result[i]===_result[i+1]) flag = true;
+            }
+            if(flag){
+                alert("true");
+            }else{
+                alert("false");
+            }
+        }
+</script>
+</body>
+</html>
