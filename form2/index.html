@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单（二）多个表单动态验证</title>
+    <style>
+        input{
+            outline: none;
+        }
+
+        form{
+            width: 700px;
+            height: 500px;
+            margin: 20px auto;
+        }
+        form div{
+            margin-top: 20px;
+        }
+        form label{
+            text-align: right;
+        }
+        form .input{
+            width: 500px;
+            height: 30px;
+            margin-left: 152px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form .tooltips{
+            margin-left: 144px;
+            font-size: 14px;
+        }
+        form #btn{
+            width: 60px;
+            height: 40px;
+            margin-left: 590px;
+            color: #ffffff;
+            background-color: #307ab8;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="get" accept-charset="utf-8">
+        <div>
+            <label>名称：<input class="input" type="text" name="" value=""></label>
+        </div>
+        <span class="tooltips"></span>
+        <div>
+            <label>密码：<input class="input" type="password" name="" value=""></label>
+        </div>
+        <span class="tooltips"></span>
+        <div>
+            <label>密码确认：<input class="input" type="password" name="" value=""></label>
+        </div>
+        <span class="tooltips"></span>
+        <div>
+            <label>邮箱：<input class="input" type="text" name="" value=""></label>
+        </div>
+        <span class="tooltips"></span>
+        <div>
+            <label>手机：<input class="input" type="text" name="" value=""></label>
+        </div>
+        <span class="tooltips"></span>
+        <div>
+        <input id="btn" type="button" name="" value="提交">
+        </div>
+    </form>
+    <script src="javascripts/demo.js"></script>
+    <script>
+        var formValidation = new FormValidation();
+        formValidation.init();
+    </script>
+</body>
+</html>
