@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单（三）联动</title>
+    <style>
+        form{
+            width: 700px;
+            height: auto;
+            margin: 30px auto;
+            font-size: 24px;
+        }
+        form span{
+            margin-left: 100px;
+        }
+        form .radio-label{
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px #ccc solid;
+            border-radius: 50%;
+        }
+        form .select-wrapper{
+            margin-top: 20px;
+        }
+        form .select-wrapper .stu-select-wrapper,
+        form .select-wrapper .no-stu-select-wapper{
+            display: none;
+        }
+        form .select-wrapper .stu-select-wrapper select{
+            width: 200px;
+            height: 30px;
+        }
+        form .select-wrapper .no-stu-select-wapper input{
+            width: 400px;
+            height: 30px;
+        }
+        input:checked + .radio-label:after{
+            content: "";
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="" method="get" accept-charset="utf-8">
+        <span>
+            <input id="stu_radio" type="radio" name="radio" value="" style="display: none;">在校生
+            <label class="radio-label" for="stu_radio"></label>
+        </span>
+        <span>
+            <input id="no_stu_radio" type="radio" name="radio" value="" style="display: none;">非在校生
+            <label class="radio-label" for="no_stu_radio"></label>
+        </span>
+        
+        <div class="select-wrapper">
+            <div class="stu-select-wrapper">
+            学校
+                <select name="city">
+                    <option value=""></option>
+                    <option value="重庆">重庆</option>
+                    <option value="北京">北京</option>
+                    <option value="上海">上海</option>
+                </select>
+                <select name="university">
+                    
+                </select>
+            </div>
+            <div class="no-stu-select-wapper">
+                <label>就业单位<input type="text" name="" value=""></label>
+            </div>
+        </div>
+    </form>
+
+    <script src="javascripts/demo.js"></script>
+    <script>
+        new FormRadioSelect().init();
+    </script>
+</body>
+</html>
