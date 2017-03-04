@@ -1,3 +1,8 @@
+/**
+  *@author coderCY
+  *@qq 1015561170
+  *
+**/
 var data = {
     city:["重庆","北京","上海"],
     school:{
