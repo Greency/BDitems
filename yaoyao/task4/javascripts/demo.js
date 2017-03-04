@@ -60,7 +60,6 @@
         }else if(robotObj.direction === "down"){
             if(robotObj.position.y<460){
                 robotObj.position.y += 51.2;
-                console.log("go-- "+robotObj.position.y);
                 robot.style.top = robotObj.position.y + "px";
             }
         }else if(robotObj.direction === "left"){
